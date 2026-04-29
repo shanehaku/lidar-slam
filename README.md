@@ -1,9 +1,5 @@
 # 2026 Spring SDC Midterm Competition II - SLAM with 3DGS
 
-
-## Lidar Slam Code
-https://github.com/shanehaku/lidar-slam
-
 ## Code Structure
 ```
 .
