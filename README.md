@@ -53,7 +53,7 @@ pip install small_gicp
 1. Finish the TODOs in `/utils/ICP.py` & `/utils/ICP.py`
 2. Run `main.py` to estimate the poses for each LiDAR input. 
 Submit the result `lidar_poses.csv` to Kaggle.
-{%youtube L8-utFkSwM4 %}
+https://www.youtube.com/watch?v=L8-utFkSwM4
 
 #### The following steps describe how to prepare a colored PCD map for 3DGS:
 3. Run `camera_pose.py` under /process to derive all camera poses from LiDAR poses.
