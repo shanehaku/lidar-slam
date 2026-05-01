@@ -9,7 +9,7 @@ import pandas as pd
 # --- camera Extrinsics  ---
 
 '''
-Those are for Track1
+Those are for Track2
 '''
 def get_extrinsic_matrices():
     T_top_to_30f = make_T(0.079, -0.082, -0.112, -0.502, 0.506, -0.501, 0.490)
@@ -17,7 +17,7 @@ def get_extrinsic_matrices():
     T_lidar_cam = T_top_to_30f @ T_30f_to_60f
     return T_lidar_cam
 '''
-Those are for Track2
+Those are for Track1
 '''
 # def get_extrinsic_matrices():
 #     # Base transformation matrix
