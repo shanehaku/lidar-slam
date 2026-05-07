@@ -11,11 +11,18 @@ from scipy.spatial.transform import Slerp
 
 # --- camera Intrinsics  ---
 '''
+Those are for Track3
+'''
+W, H = 960, 720
+FX, FY = 979.71515067, 986.50585105
+CX, CY = 448.7607866, 354.91012286
+
+'''
 Those are for Track2
 '''
-W, H = 1440, 928
-FX, FY = 1040.18078, 1038.55506
-CX, CY = 720.04463, 464.33648
+# W, H = 1440, 928
+# FX, FY = 1040.18078, 1038.55506
+# CX, CY = 720.04463, 464.33648
 
 '''
 Those are for Track1
