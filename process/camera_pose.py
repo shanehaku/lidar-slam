@@ -9,13 +9,41 @@ import pandas as pd
 # --- camera Extrinsics  ---
 
 '''
-Those are for Track2
+Those are for Track3
 '''
 def get_extrinsic_matrices():
-    T_top_to_30f = make_T(0.079, -0.082, -0.112, -0.502, 0.506, -0.501, 0.490)
-    T_30f_to_60f = make_T(-0.162, -0.003, 0.003, -0.001, -0.002, -0.000, 1.000)
-    T_lidar_cam = T_top_to_30f @ T_30f_to_60f
-    return T_lidar_cam
+    # Base transformation matrix
+    T_lidar_cam = make_T(-0.170, 0.12, -0.100, -0.7071, 0.0, 0.0, 0.7071)
+
+    # 1. Pitch: 
+    pitch_angle = np.radians(17)
+    rot_pitch = R.from_euler('x', pitch_angle, degrees=False).as_matrix()
+
+    # 2. Yaw:
+    yaw_angle = np.radians(-4.25)
+    rot_yaw = R.from_euler('z', yaw_angle, degrees=False).as_matrix()
+
+    # Extract components
+    rot_part = T_lidar_cam[:3, :3]
+    trans_part = T_lidar_cam[:3, 3]
+
+    # 3. Apply
+    new_rot = rot_part @ rot_yaw @ rot_pitch
+
+    T_new = np.eye(4)
+    T_new[:3, :3] = new_rot
+    T_new[:3, 3] = trans_part
+
+    return T_new
+    
+'''
+Those are for Track2
+'''
+# def get_extrinsic_matrices():
+#     T_top_to_30f = make_T(0.079, -0.082, -0.112, -0.502, 0.506, -0.501, 0.490)
+#     T_30f_to_60f = make_T(-0.162, -0.003, 0.003, -0.001, -0.002, -0.000, 1.000)
+#     T_lidar_cam = T_top_to_30f @ T_30f_to_60f
+#     return T_lidar_cam
 '''
 Those are for Track1
 '''
@@ -44,7 +72,7 @@ Those are for Track1
 
 #     return T_new
 
-
+############################################################################################
 def make_T(x, y, z, rx, ry, rz, rw):
     """Create a 4x4 homogeneous transformation matrix from translation and quaternion."""
     T = np.eye(4)
