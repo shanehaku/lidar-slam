@@ -13,7 +13,7 @@ Those are for Track3
 '''
 def get_extrinsic_matrices():
     # Base transformation matrix
-    T_lidar_cam = make_T(-0.170, 0.12, -0.100, -0.7071, 0.0, 0.0, 0.7071)
+    T_lidar_cam = make_T(-0.170, -0.115, -0.100, -0.7071, 0.0, 0.0, 0.7071)
 
     # 1. Pitch: 
     pitch_angle = np.radians(17)
