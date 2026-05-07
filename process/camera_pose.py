@@ -16,11 +16,11 @@ def get_extrinsic_matrices():
     T_lidar_cam = make_T(-0.170, -0.115, -0.100, -0.7071, 0.0, 0.0, 0.7071)
 
     # 1. Pitch: 
-    pitch_angle = np.radians(17)
+    pitch_angle = np.radians(7)
     rot_pitch = R.from_euler('x', pitch_angle, degrees=False).as_matrix()
 
     # 2. Yaw:
-    yaw_angle = np.radians(-4.25)
+    yaw_angle = np.radians(-3.25)
     rot_yaw = R.from_euler('z', yaw_angle, degrees=False).as_matrix()
 
     # Extract components
